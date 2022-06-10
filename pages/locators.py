@@ -12,7 +12,7 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     BASKET_BUTTON = (By.CLASS_NAME, 'btn.btn-lg.btn-primary.btn-add-to-basket')
-    SUCCESS_MESSAGE = (By.ID, 'messages')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages .alert.alert-safe')
 
     PRODUCT_NAME = (By.CSS_SELECTOR, '.col-sm-6.product_main h1')  #
     PRODUCT_PRICE = (By.CSS_SELECTOR, '.col-sm-6.product_main .price_color')
