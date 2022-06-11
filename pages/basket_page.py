@@ -7,6 +7,7 @@ class BasketPage(BasePage):
         assert self.is_not_element_present(*BasketPageLocators.PRODUCTS_IN_BASKET), \
             'There is some products in the basket'
 
-    def get_no_product_text(self):
+    def your_basket_is_empty_message(self):
         message = self.browser.find_element(*BasketPageLocators.NO_PRODUCT_MESSAGE)
-        return message.text
+        assert message.text == 'Your basket is empty. Continue shopping', \
+            f'There is no message about empty basket. Heir is {message.text}'

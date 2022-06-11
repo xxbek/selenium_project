@@ -69,7 +69,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser, link
     page.go_to_basket()
     page = BasketPage(browser, browser.current_url)
     page.there_is_no_product_in_basket()
-    assert page.get_no_product_text() == 'Your basket is empty. Continue shopping'
+    page.your_basket_is_empty_message()
 
 
 class TestWaitForSuccessInfo:
