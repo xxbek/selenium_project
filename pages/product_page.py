@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
+from selenium.common.exceptions import NoAlertPresentException
 
 
 class ProductPage(BasePage):
@@ -9,7 +10,10 @@ class ProductPage(BasePage):
 
         add_to_basket_button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
         add_to_basket_button.click()
-        self.solve_quiz_and_get_code()
+        try:
+            self.solve_quiz_and_get_code()
+        except NoAlertPresentException:
+            pass
 
     def product_price_in_basket_is_correct(self):
         product_price = self._get_product_price()
